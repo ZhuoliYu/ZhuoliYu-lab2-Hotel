@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
 namespace Lab1_DataAnnotations_Hotel.Models
 {
     public class Room
     {
         public int Id { get; set; }
-        //PrimaryKey
+       
         [Key]
         public string RoomNumber { get; set; }
 
@@ -16,11 +15,11 @@ namespace Lab1_DataAnnotations_Hotel.Models
 
     public enum Section
     {
-        [Display(Name = "First")]
+        [Display(Name = "1st")]
         First,
-        [Display(Name = "Second")]
+        [Display(Name = "2nd")]
         Second,
-        [Display(Name = "Third")]
+        [Display(Name = "3rd")]
         Third
     }
 }
