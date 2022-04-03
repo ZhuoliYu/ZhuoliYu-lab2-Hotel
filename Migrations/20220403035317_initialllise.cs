@@ -50,6 +50,7 @@ namespace Lab1_DataAnnotations_Hotel.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+
             migrationBuilder.CreateTable(
                 name: "CurrentlyBooking",
                 columns: table => new
