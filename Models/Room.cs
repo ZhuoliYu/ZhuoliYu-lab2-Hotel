@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Lab1_DataAnnotations_Hotel.Models
 {
     public class Room
@@ -11,6 +13,18 @@ namespace Lab1_DataAnnotations_Hotel.Models
         public int capacity { get; set; }
 
         public Section Section { get; set; }
+
+        [ForeignKey("CurrentRoomNumber")]
+        [InverseProperty("CurrentRoom")]
+        public ICollection<CurrentlyBooking> CurrentlyBooking { get; set; }
+        [ForeignKey("PreviousRoomNumber")]
+        [InverseProperty("PreviousRoom")]
+        public ICollection<PreviouslyBooking> PreviouslyBooking { get; set; }
+        public Room()
+        {
+            CurrentlyBooking = new HashSet<CurrentlyBooking>();
+            PreviouslyBooking = new HashSet<PreviouslyBooking>();
+        }
     }
 
     public enum Section
